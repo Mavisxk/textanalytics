@@ -30,7 +30,7 @@ def index():
         a=request.form.get("text")
         print(text)
         s = TextBlob(text).sentiment
-        return(render_template("index.html", result = "s"))
+        return(render_template("index.html", result = s))
     else:
         return(render_template("index.html", result = "2"))
 
