@@ -22,17 +22,17 @@ app = Flask(__name__)
 # In[4]:
 
 
-from flask import request, render_template
+from flask import render_template,request
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        a=request.form.get("text")
+        text = request.form.get("text")
         print(text)
-        s = TextBlob(text).sentiment
-        return(render_template("index.html", result = s))
+        r = TextBlob(text).sentiment
+        return(render_template("index.html", result=r))
     else:
-        return(render_template("index.html", result = "2"))
+        return(render_template("index.html", result="2"))
 
 
 # In[ ]:
